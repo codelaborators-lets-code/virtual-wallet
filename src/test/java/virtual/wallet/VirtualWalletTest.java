@@ -112,5 +112,19 @@ public class VirtualWalletTest {
 		int updatedValue = underTest.getFunds();
 		assertThat(updatedValue, is(190));
 	}
+	
+	@Test
+	public void shouldReturnFalseWithIncorrectPassword() {
+		//update constructor to take in a password (hard code this for now as 1111)
+		//on underTest call checkPassword(2222)
+		//run an assertion that this would come back as false
+	}
+	
+	@Test
+	public void shouldReturnTrueWithCorrectPassword() {
+		//update constructor to take in a password (hard code this for now as 1111)
+		//on underTest call checkPassword(1111)
+		//run an assertion that this would come back as true
+	}
 
 }

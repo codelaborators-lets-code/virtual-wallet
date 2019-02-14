@@ -9,7 +9,11 @@ public class VirtualWalletApp {
 
 		Scanner input = new Scanner(System.in);
 		Timer timer = new Timer();
+		
+		//update myWallet with the 3rd argument in the constructor for the password
 		VirtualWallet myWallet = new VirtualWallet("Alan", 100);
+		
+		//do not allow the user to move into the menu unless the password has been verified
 
 		System.out.println("Press 1 to check funds");
 		System.out.println("Press 2 to add funds");
