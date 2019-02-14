@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 public class VirtualWalletTest {
 
-	VirtualWallet underTest = new VirtualWallet("user name", 200);
+	VirtualWallet underTest = new VirtualWallet("user name", 200, "1111");
 
 	@Test
 	public void shouldStartWithFundsOf200() {
@@ -111,6 +111,18 @@ public class VirtualWalletTest {
 		Thread.sleep(1000);
 		int updatedValue = underTest.getFunds();
 		assertThat(updatedValue, is(190));
+	}
+	
+	@Test
+	public void shouldReturnFalseWithIncorrectPassword() {
+		boolean checkPassword = underTest.checkPassword("2222");
+		assertThat(checkPassword, is(false));
+	}
+	
+	@Test
+	public void shouldReturnTrueWithCorrectPassword() {
+		boolean checkPassword = underTest.checkPassword("1111");
+		assertThat(checkPassword, is(true));
 	}
 
 }

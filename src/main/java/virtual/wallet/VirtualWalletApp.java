@@ -9,7 +9,15 @@ public class VirtualWalletApp {
 
 		Scanner input = new Scanner(System.in);
 		Timer timer = new Timer();
-		VirtualWallet myWallet = new VirtualWallet("Alan", 100);
+		VirtualWallet myWallet = new VirtualWallet("Alan", 100, "1111");
+
+		System.out.println("Hello, please enter your password into the virtual wallet.");
+		String passwordEntered = input.nextLine();
+
+		while (myWallet.checkPassword(passwordEntered) == false) {
+			System.out.println("Incorrect password...please try again.");
+			passwordEntered = input.nextLine();
+		}
 
 		System.out.println("Press 1 to check funds");
 		System.out.println("Press 2 to add funds");

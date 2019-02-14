@@ -8,6 +8,7 @@ public class VirtualWallet extends TimerTask {
 	private String userName;
 	private int numTransactions;
 	private int scheduledAmt;
+	private String password;
 
 	public int getFunds() {
 		return funds;
@@ -17,13 +18,18 @@ public class VirtualWallet extends TimerTask {
 		return userName;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
 	public void setScheduledAmt(int scheduledAmt) {
 		this.scheduledAmt = scheduledAmt;
 	}
 
-	public VirtualWallet(String userName, int funds) {
+	public VirtualWallet(String userName, int funds, String password) {
 		this.funds = funds;
 		this.userName = userName;
+		this.password = password;
 
 		this.numTransactions = 0; // default value
 		this.scheduledAmt = 0; // default value
@@ -60,6 +66,15 @@ public class VirtualWallet extends TimerTask {
 
 		isTransactionTotal10();
 	}
+	
+	public boolean checkPassword(String passwordEntered) {
+		if(password.equals(passwordEntered)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 
 	private void isTransactionTotal10() {
 		if (numTransactions == 10) {
